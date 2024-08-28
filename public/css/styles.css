@@ -1,0 +1,1168 @@
+/* public/css/styles.css */
+:root {
+  --primary-color: #3498db;    /* Primární barva */
+  --secondary-color: #2c3e50;  /* Sekundární barva */
+  --accent-color: #e74c3c;     /* Akcentová barva */
+  --background-color: #f0f0f0; /* Barva pozadí */
+  --text-color: #333;          /* Barva textu */
+  --light-text-color: #ecf0f1; /* Barva světlého textu */
+  --card-background: #fff;     /* Barva pozadí karet */
+}
+
+/* Základní styly pro celé tělo dokumentu */
+body {
+  font-family: "Roboto", Arial, sans-serif; /* Nastavení fontu */
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6; /* Výška řádku */
+}
+
+/* Styl pro hlavičku stránky */
+.header {
+  display: flex;
+  justify-content: center; /* Horizontální centrování */
+  align-items: center;     /* Vertikální centrování */
+  padding: 20px;
+  background-color: var(--secondary-color);
+  color: var(--light-text-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Stín pod hlavičkou */
+  position: relative;
+  height: 200px; /* Fixní výška hlavičky */
+}
+
+/* Styl pro logo */
+#logo {
+  max-width: 300px;
+  width: 300px;
+  height: auto;
+  object-fit: contain; /* Zachování poměru stran obrázku */
+  position: absolute;  /* Absolutní pozicování */
+  left: 50%;           /* Posun na střed */
+  transform: translateX(-50%); /* Vycentrování */
+}
+
+/* Styl pro hlavní obsah stránky */
+/* Styl pro hlavní obsah stránky */
+#content {
+  max-width: 1600px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responzivní grid */
+  gap: 20px; /* Mezera mezi produkty */
+}
+
+/* Rozložení stránky */
+.page-layout {
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Styl pro kontejner vyhledávání a řazení */
+.search-sort-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+  max-width: 1600px;
+  padding: 0 20px;
+}
+
+/* Zde můžete přidat další styly pro responzivitu, pokud je potřebujete */
+@media (max-width: 1600px) {
+  #content,
+  .page-layout,
+  .search-sort-container {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  #content {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .search-sort-container {
+    flex-direction: column;
+  }
+}
+
+/* Styly pro přihlašovací tlačítko a jméno uživatele */
+#user-account {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#login-button,
+#logout-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#login-button:hover,
+#logout-button:hover {
+    background-color: #2980b9;
+}
+
+#user-name {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Styly pro přihlašovací modal */
+#login-modal .modal-content {
+    max-width: 300px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#login-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#login-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Styl pro jednotlivé produktové karty */
+.product {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s; /* Plynulý přechod pro hover efekt */
+}
+
+/* Hover efekt pro produktové karty */
+.product:hover {
+  transform: translateY(-10px); /* Mírné nadzvednutí */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Zvýraznění stínu */
+}
+
+/* Styl pro nadpis produktu */
+.product h2 {
+  font-size: 22px;
+  margin: 0 0 20px;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* Styl pro zobrazení ceny produktu */
+.product .price {
+  font-size: 24px;
+  color: var(--accent-color);
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+/* Styl pro detail produktu */
+.product-detail {
+    max-width: 100%;
+    width: 200vw;
+  max-width: 1200px; /* maximální šířka pro velké obrazovky */  
+  margin: 20px auto;
+    padding: 30px;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 0 0 2px var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    box-sizing: border-box;
+}
+
+/* Styl pro nadpis v detailu produktu */
+.product-detail h2 {
+  font-size: 32px;
+  margin: 0 0 30px;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+/* Rozložení obsahu v detailu produktu */
+.product-detail-content {
+  display: flex;
+  flex-wrap: wrap; /* Povolí zalamování na menších obrazovkách */
+  gap: 40px;
+}
+
+.product-detail-left,
+.product-detail-right {
+  flex: 1 1 300px; /* Minimální šířka 300px, ale může růst a smršťovat se */
+}
+
+/* Styl pro hlavní obrázek v detailu produktu */
+.product-detail .main-image {
+  width: 100%;
+  max-height: 700px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Styl pro galerii obrázků v detailu produktu */
+.product-detail .product-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.product-detail .product-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.product-detail .product-images img:hover {
+  transform: scale(1.1);
+}
+
+/* Pokračování komentářů... */
+
+/* Styl pro popis produktu */
+.product-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Styl pro cenu v detailu produktu */
+.product-detail .price {
+  font-size: 28px;
+  color: var(--accent-color);
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+/* Styly pro další informace o produktu */
+.product-detail .category,
+.product-detail .availability {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Styl pro tlačítko v detailu produktu */
+.product-detail button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-detail button:hover {
+  background-color: #2980b9;
+}
+
+/* Styl pro patičku */
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--light-text-color);
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* Styl pro tlačítko "Zpět" */
+.main-back-button {
+  position: fixed;
+  top: 100px;
+  left: 40px;
+  z-index: 1000;
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+  display: none;
+}
+
+.main-back-button.show {
+  display: block;
+}
+
+.main-back-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+/* Styl pro kontejner vyhledávání a řazení */
+.search-sort-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+  max-width: 1600px;
+  padding: 0 20px;
+}
+
+/* Styly pro pole vyhledávání a výběr řazení */
+#search-input,
+#sort-select {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+
+#search-input:focus,
+#sort-select:focus {
+  box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+/* Rozložení stránky */
+.page-layout {
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Styl pro postranní panel */
+.sidebar {
+  width: 200px;
+  margin-right: 30px;
+}
+
+/* Styl pro hlavní obsah */
+.main-content {
+  flex: 1;
+}
+
+/* Styl pro menu kategorií */
+#categories-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#categories-menu button {
+  margin: 5px 0;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#categories-menu button:hover,
+#categories-menu button.active {
+  background-color: #2980b9;
+  transform: translateX(5px);
+}
+
+/* Styl pro pole vyhledávání a výběr řazení v postranním panelu */
+#search-input,
+#sort-select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Styl pro stránkování */
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  min-height: 50px;
+}
+
+#pagination button {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#pagination button:hover {
+  transform: translateY(-2px);
+}
+
+#pagination button.active {
+  background-color: #2980b9;
+  font-weight: bold;
+}
+
+#pagination button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Styly pro ikonu košíku */
+#cart-icon {
+    font-size: 28px;
+    margin-right: 5px;
+}
+
+#cart-count {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+#cart-total {
+    font-size: 16px;
+    color: var(--light-text-color);
+}
+
+/* Styly pro modální okno */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Styly pro obsah modálního okna */
+.modal-content {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 25px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Styly pro položky v košíku */
+.cart-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 4px;
+}
+
+.cart-item-price {
+  font-size: 15px;
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+/* Styly pro tlačítka množství */
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 12px;
+}
+
+/* Pokračování stylů pro tlačítka množství */
+.quantity-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-quantity span {
+  margin: 0 8px;
+  font-size: 16px;
+}
+
+/* Styl pro tlačítko odstranění */
+.remove-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Styly pro souhrn košíku */
+.cart-summary {
+  margin-top: 25px;
+  text-align: right;
+}
+
+.celkova-cena {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2ecc71;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Styl pro tlačítko dokončení objednávky */
+#checkout-button {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* Styl pro tlačítko zavření modálního okna */
+.close {
+  color: var(--secondary-color);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--accent-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styl pro kontejner položek v košíku */
+#cart-items {
+  margin-bottom: 20px;
+}
+
+/* Hover efekt pro tlačítko dokončení objednávky */
+#checkout-button:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+}
+
+/* Styl pro informace o položce v košíku */
+.cart-item-info {
+  flex-grow: 1;
+}
+
+/* Media query pro responsivní design */
+@media (max-width: 1200px) {
+  .product-detail-content {
+    flex-direction: column;
+  }
+
+  .product-detail-left,
+  .product-detail-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #content {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* Menší mezera pro mobilní zařízení */
+  }
+  
+  .product .main-image {
+    height: 220px; /* Menší výška pro mobilní zařízení */
+  }
+
+  .product-detail {
+    width: 98%;
+    padding: 15px;
+    margin: 10px auto;
+  }
+
+  .search-sort-container {
+    flex-direction: column;
+  }
+
+  #search-input,
+  #sort-select {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .main-back-button {
+    top: 80px;
+    left: 20px;
+  }
+}
+
+/* Styl pro kontejner košíku */
+#cart-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Změněno z 'column' na 'row' */
+    gap: 10px;
+}
+
+#cart-icon, #cart-count, #cart-total {
+    margin-bottom: 5px;
+}
+
+/* Styl pro tlačítko otevření košíku */
+#open-cart-button {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#open-cart-button:hover {
+    background-color: #2980b9;
+}
+
+/* Styly pro dostupnost produktu */
+.product-detail .availability {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-detail .availability.in-stock {
+  color: #2ecc71;
+}
+
+.product-detail .availability.out-of-stock {
+  color: #e74c3c;
+}
+
+/* Styly pro dodatečné informace o produktu */
+.product-detail .vendor,
+.product-detail .weight,
+.product-detail .dimensions,
+.product-detail .materials,
+.product-detail .care-instructions,
+.product-detail .warranty-info,
+.product-detail .delivery-time {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.product-detail .product-description {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.product-detail button {
+  margin-top: 20px;
+}
+
+/* Styly pro kartu produktu */
+.product {
+  display: flex;                /* Nastaví flex kontejner */
+  flex-direction: column;       /* Uspořádá obsah vertikálně */
+  height: 92%;                 /* Nastaví výšku na 100% rodičovského elementu */
+  transition: box-shadow 0.3s ease; /* Přidá plynulý přechod pro efekt stínu */
+}
+
+.product:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Přidá stín při najetí myší */
+}
+
+.product a {
+  flex-grow: 1;                 /* Umožní odkazu růst a vyplnit dostupný prostor */
+  display: flex;                /* Nastaví flex kontejner */
+  flex-direction: column;       /* Uspořádá obsah vertikálně */
+  text-decoration: none;        /* Odstraní podtržení odkazu */
+  color: inherit;               /* Použije barvu textu z nadřazeného elementu */
+}
+
+/* Styl pro hlavní obrázek produktu */
+.product .main-image {
+  width: 100%;                    /* Obrázek zabírá celou šířku kontejneru */
+  height: 280px;                  /* Fixní výška pro všechny obrázky */
+  object-fit: contain;            /* Zajistí zobrazení celého obrázku bez oříznutí */
+  border-radius: 8px;             /* Zaoblené rohy */
+  margin-bottom: 20px;            /* Mezera pod obrázkem */
+  transition: transform 0.3s, box-shadow 0.3s; /* Plynulý přechod pro hover efekt */
+}
+
+/* Hover efekt pro hlavní obrázek produktu */
+.product:hover .main-image {
+  transform: scale(1.05) translateY(-5px); /* Mírné zvětšení a posunutí nahoru */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Přidání stínu pro efekt "vznášení" */
+}
+
+.product .product-info {
+  padding: 15px;                /* Přidá vnitřní odsazení */
+  flex-grow: 1;                 /* Umožní růst a vyplnění dostupného prostoru */
+  display: flex;                /* Nastaví flex kontejner */
+  flex-direction: column;       /* Uspořádá obsah vertikálně */
+}
+
+.product h2 {
+  font-size: 18px;              /* Nastaví velikost písma nadpisu */
+  margin-bottom: 10px;          /* Přidá spodní okraj */
+  color: var(--secondary-color); /* Použije sekundární barvu pro text */
+}
+
+.product .price {
+  font-size: 20px;              /* Nastaví velikost písma ceny */
+  font-weight: bold;            /* Nastaví tučné písmo */
+  color: var(--accent-color);   /* Použije akcentovou barvu pro cenu */
+  margin-bottom: 10px;          /* Přidá spodní okraj */
+}
+
+.product .vendor {
+  font-size: 14px;              /* Nastaví velikost písma pro dodavatele */
+  color: #666;                  /* Nastaví šedou barvu textu */
+  margin-bottom: 10px;          /* Přidá spodní okraj */
+}
+
+.product .availability {
+  font-size: 14px;              /* Nastaví velikost písma pro dostupnost */
+  font-weight: bold;            /* Nastaví tučné písmo */
+  margin-bottom: 15px;          /* Přidá spodní okraj */
+}
+
+.product .product-actions {
+  margin-top: auto;             /* Posune akce produktu na konec kontejneru */
+}
+
+/* Styly pro výběr varianty a tlačítko v kartě produktu */
+.product .variant-select,
+.product button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.product button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product button:hover {
+  background-color: #2980b9;
+}
+
+/* Styly pro detail produktu */
+.product-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.product-detail-left {
+  flex: 1 1 300px;
+}
+
+.product-detail-right {
+  flex: 1 1 300px;
+}
+
+.product-detail .main-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.product-detail .product-images {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.product-detail .product-images img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.product-detail .product-images img:hover {
+  transform: scale(1.1);
+}
+
+.product-detail h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+}
+
+.product-detail .price {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 15px;
+}
+
+.product-detail .availability {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-detail .product-option {
+  margin-bottom: 15px;
+}
+
+/* Styly pro výběr varianty a tlačítko v detailu produktu */
+.product-detail .variant-select,
+.product-detail button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.product-detail button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-detail button:hover {
+  background-color: #2980b9;
+}
+
+.product-detail .product-description {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Obecné vylepšení designu */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f8f9fa;
+}
+
+.header {
+  background-color: var(--secondary-color);
+  padding: 20px 0;
+}
+
+#logo {
+  max-width: 200px;
+}
+
+#cart-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.search-sort-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+#search-input,
+#sort-select {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Styly pro tlačítka kategorií */
+#categories-menu button {
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+#categories-menu button:hover,
+#categories-menu button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Styl pro patičku */
+.footer {
+  background-color: var(--secondary-color);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+/* Existující CSS zůstává stejné, přidáme nové styly na konec souboru */
+
+/* ... (předchozí CSS kód) ... */
+
+/* Nové responzivní styly */
+@media screen and (max-width: 1200px) {
+  #content {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .product-detail-content {
+    flex-direction: column;
+  }
+  
+  .product-detail-left,
+  .product-detail-right {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 10px;
+  }
+  
+  #logo {
+    position: static;
+    transform: none;
+    max-width: 200px;
+    margin: 0 auto 10px;
+  }
+  
+  #user-account,
+  #cart-container {
+    position: static;
+    margin-top: 10px;
+  }
+  
+  .search-sort-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  #search-input,
+  #sort-select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .product {
+    height: auto;
+  }
+  
+  .product .main-image {
+    height: 200px;
+  }
+  
+  .product-detail {
+    padding: 15px;
+  }
+  
+  .product-detail .main-image {
+    height: auto;
+    max-height: 300px;
+  }
+  
+  .product-detail .product-images img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #content {
+    grid-template-columns: 1fr;
+  }
+  
+  .product {
+    max-width: 100%;
+  }
+}
+
+/* Flexibilní layout pro tělo stránky */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#content {
+  flex: 1;
+}
+
+/* Zajištění, aby footer zůstal na spodní části stránky */
+.footer {
+  margin-top: auto;
+}
+
+/* Vylepšení pro detail produktu */
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: calc(100vh - 200px); /* Odečteme výšku hlavičky a patičky */
+}
+
+.product-detail-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-detail .main-image {
+  max-height: 50vh;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Úprava rozložení pro větší obrazovky */
+@media screen and (min-width: 1200px) {
+  .product-detail-content {
+    flex-direction: row;
+  }
+  
+  .product-detail-left {
+    flex: 1;
+    margin-right: 30px;
+  }
+  
+  .product-detail-right {
+    flex: 1;
+  }
+}
+
+/* Optimalizace pro tablety */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #content {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .product .main-image {
+    height: 180px;
+  }
+}
+
+/* Zajištění čitelnosti textu na menších zařízeních */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .product h2 {
+    font-size: 16px;
+  }
+  
+  .product .price {
+    font-size: 18px;
+  }
+  
+  .product-detail h2 {
+    font-size: 20px;
+  }
+  
+  .product-detail .price {
+    font-size: 22px;
+  }
+}
+ 
